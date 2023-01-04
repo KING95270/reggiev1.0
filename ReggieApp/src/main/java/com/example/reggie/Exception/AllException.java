@@ -18,7 +18,7 @@ public class AllException {
 
         //定义全局异常
 
-      log.error("失败！！！！！: {}",exception.getMessage());
+      log.error("失败！！！！！{}",exception.getMessage());
 
       //判断错误信息是否包含Duplicate entry 该错误为账户已存在
       if (exception.getMessage().contains("Duplicate entry")){
