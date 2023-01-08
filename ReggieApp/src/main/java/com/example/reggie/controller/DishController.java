@@ -17,12 +17,14 @@ import com.example.reggie.service.DishService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.*;
 
 import javax.sound.midi.Soundbank;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
 @CrossOrigin
@@ -42,6 +44,9 @@ public class DishController {
 
     @Autowired
     DishFlavorService flavorService;
+
+    @Autowired
+    RedisTemplate redisTemplate;
 
     //查询所有菜品
     @GetMapping("/page")
@@ -113,6 +118,7 @@ public class DishController {
 
         dishService.UpdateSave(dishDto);
 
+
         return R.success("成功");
     }
 
@@ -130,30 +136,44 @@ public class DishController {
 
         dishService.update(wrapper);
 
+        LambdaUpdateWrapper<Dish> wrapper1 = new LambdaUpdateWrapper<>();
+        wrapper1.eq(Dish::getId,list.get(0));
+
+        Dish one = dishService.getOne(wrapper1);
+
+
+        List<DishDto> dishDtoList = null;
+
+        String key = "dish_" + one.getCategoryId() + "_1";
+
+        dishDtoList =(List<DishDto>) redisTemplate.opsForValue().get(key);
+        if (dishDtoList != null){
+            redisTemplate.delete(key);
+        }
+
         return R.success("成功");
     }
 
-//    //套餐 根据id查询
-//    @GetMapping("/list")
-//    public R<List<Dish>> list(long categoryId,String name){
-//
-//        LambdaQueryWrapper<Dish> setmealDtoLambdaQueryWrapper = new LambdaQueryWrapper<>();
-//        setmealDtoLambdaQueryWrapper.eq(Dish::getCategoryId,categoryId);
-//
-//        Page<Dish> page = dishService.page(new Page<>(), setmealDtoLambdaQueryWrapper);
-//
-//        List<Dish> records = page.getRecords();
-//
-//        return R.success(records);
-//    }
 
     @GetMapping("/list")
     public R<List<DishDto>> list(Dish dish) {
 
+        List<DishDto> dishDtoList = null;
+
+        //生成key
+        String redisKey ="dish_" + dish.getCategoryId()+"_"+dish.getStatus();
+
+        //使用key获取数据
+        dishDtoList = (List<DishDto>)redisTemplate.opsForValue().get(redisKey);
+
+        //如果不是空，说明有数据，直接返回
+        if (dishDtoList != null){
+            return R.success(dishDtoList);
+        }
+
+        //生成条件构造器
         LambdaQueryWrapper<Dish> setmealDtoLambdaQueryWrapper = new LambdaQueryWrapper<>();
         setmealDtoLambdaQueryWrapper.eq(Dish::getCategoryId, dish.getCategoryId()).eq(dish.getStatus()!= null,Dish::getStatus,dish.getStatus());
-
-
 
 
         Page<Dish> page = dishService.page(new Page<>(), setmealDtoLambdaQueryWrapper);
@@ -161,7 +181,7 @@ public class DishController {
         List<Dish> records = page.getRecords();
 
 
-        List<DishDto> dishDtoList =  records.stream().map((item) -> {
+        dishDtoList =  records.stream().map((item) -> {
             DishDto dishDto = new DishDto();
 
             //数据拷贝
@@ -182,7 +202,8 @@ public class DishController {
             return dishDto;
         }).collect(Collectors.toList());
 
-        System.out.println(dishDtoList);
+        //把数据存入rides,设置存活时间60分钟
+        redisTemplate.opsForValue().set(redisKey,dishDtoList,60, TimeUnit.MINUTES);
 
         return R.success(dishDtoList);
     }
