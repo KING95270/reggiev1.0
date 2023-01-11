@@ -17,6 +17,9 @@ import com.example.reggie.service.DishService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.CacheManager;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.*;
 
@@ -47,6 +50,9 @@ public class DishController {
 
     @Autowired
     RedisTemplate redisTemplate;
+
+    @Autowired
+    CacheManager manager;
 
     //查询所有菜品
     @GetMapping("/page")
@@ -95,6 +101,7 @@ public class DishController {
     }
 
     //根据id查询
+    @Cacheable(value = "userCache",key = "#id",unless = "#result == null")
     @GetMapping("/{id}")
     public R<DishDto> selectId(@PathVariable Long id) {
 
