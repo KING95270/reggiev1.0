@@ -191,7 +191,7 @@
                 >
                     <el-upload
                             class="avatar-uploader"
-                            action="http://localhost8080:/common/upload"
+                            action="http://47.113.151.378080:/common/upload"
                             :show-file-list="false"
                             :on-success="handleAvatarSuccess"
                             :on-change="onChange"
@@ -351,7 +351,7 @@
                         console.log('this.dishFlavors', this.dishFlavors)
                         // this.ruleForm.id = res.data.data.categoryId
                         // this.imageUrl = res.data.data.image
-                        this.imageUrl = `http://localhost:8080/common/download?name=${res.data.image}`
+                        this.imageUrl = `http://47.113.151.37:8080/common/download?name=${res.data.image}`
                     } else {
                         this.$message.error(res.msg || '操作失败')
                     }
@@ -517,7 +517,7 @@
                 if (response.code === 0 && response.msg === '未登录') {
                     window.top.location.href = '/backend/page/login/login.html'
                 } else {
-                    this.imageUrl = `http://localhost:8080/common/download?name=${response.data}`
+                    this.imageUrl = `http://47.113.151.37:8080/common/download?name=${response.data}`
                     this.ruleForm.image = response.data
                 }
             },

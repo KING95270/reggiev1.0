@@ -5,8 +5,8 @@ spring:
     name: reggie_take_out
   datasource:
     druid:
-      driver-class-name: com.mysql.cj.jdbc.Driver
-      url: jdbc:mysql://localhost:3306/reggie
+      driver-class-name: com.mysql.jdbc.Driver
+      url: jdbc:mysql://47.113.151.37:3306/reggie?serverTimezone=UTC&userUnicode=true&useSSL=false&
       username: root
       password: root
   mvc:
@@ -19,11 +19,11 @@ spring:
       static-locations: "classpath:/backend/**"
   redis:
     port: 6379
-    host: localhost
+    host: 47.113.151.37
     database: 0
   cache:
     redis:
-      time-to-live: 1800000 #设置缓存存活时间，单位毫秒
+      time-to-live: 1800000 #设置redis缓存存活时间，单位毫秒
 
 mybatis-plus:
   configuration:
@@ -35,4 +35,5 @@ mybatis-plus:
       id-type: ASSIGN_ID
 
 reggie:
-  path: D:\img\
+  path: ReggieApp\img\
+#  path: D:\img\

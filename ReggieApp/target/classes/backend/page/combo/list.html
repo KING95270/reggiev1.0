@@ -179,7 +179,7 @@
             })
           },
           getImage (image) {
-            return `http://localhost:8080/common/download?name=${image}`
+            return `http://47.113.151.37:8080/common/download?name=${image}`
           },
           handleQuery() {
             this.page = 1;
@@ -190,13 +190,13 @@
             if (st === 'add'){
               window.parent.menuHandle({
                 id: '5',
-                url: 'http://localhost:8080/backend/page/combo/add.html',
+                url: 'http://47.113.151.37:8080/backend/page/combo/add.html',
                 name: '添加套餐'
               },true)
             } else {
               window.parent.menuHandle({
                 id: '5',
-                url: 'http://localhost:8080/backend/page/combo/add.html?id='+st,
+                url: 'http://47.113.151.37:8080/backend/page/combo/add.html?id='+st,
                 name: '修改套餐'
               },true)
             }

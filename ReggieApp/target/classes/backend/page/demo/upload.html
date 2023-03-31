@@ -41,7 +41,7 @@
         },
         methods: {
           handleAvatarSuccess (response, file, fileList) {
-              this.imageUrl = `http://localhost:8080/common/download?name=${response.data}`
+              this.imageUrl = `http://47.113.151.37:8080/common/download?name=${response.data}`
           },
           beforeUpload (file) {
             if(file){

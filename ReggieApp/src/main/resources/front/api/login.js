@@ -1,6 +1,6 @@
 function loginApi(data) {
     return $axios({
-      'url': 'http://localhost:8080/user/login',
+      'url': 'http://47.113.151.37:8080/user/login',
       'method': 'post',
       data
     })
@@ -8,7 +8,7 @@ function loginApi(data) {
 
 function loginoutApi() {
   return $axios({
-    'url': 'http://localhost:8080/user/loginout',
+    'url': 'http://47.113.151.37:8080/user/loginout',
     'method': 'post',
   })
 }

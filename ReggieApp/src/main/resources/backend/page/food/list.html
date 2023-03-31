@@ -61,7 +61,7 @@
           <template slot-scope="{ row }">
             <el-image style="width: auto; height: 40px; border:none;cursor: pointer;" 
             :src="getImage(row.image)" 
-            :preview-src-list="[ `http://localhost:8080/common/download?name=${row.image}` ]" >
+            :preview-src-list="[ `http://47.113.151.37:8080/common/download?name=${row.image}` ]" >
             <div slot="error" class="image-slot">
               <img src="./../../images/noImg.png"  style="width: auto; height: 40px; border:none;" >
             </div>  
@@ -185,7 +185,7 @@
           },
 
           getImage (image) {
-            return `http://localhost:8080/common/download?name=${image}`
+            return `http://47.113.151.37:8080/common/download?name=${image}`
           },
           handleQuery() {
             this.page = 1;
@@ -196,13 +196,13 @@
             if (st === 'add'){
               window.parent.menuHandle({
                 id: '4',
-                url: 'http://localhost:8080/backend/page/food/add.html',
+                url: 'http://47.113.151.37:8080/backend/page/food/add.html',
                 name: '添加菜品'
               },true)
             } else {
               window.parent.menuHandle({
                 id: '4',
-                url: 'http://localhost:8080/backend/page/food/add.html?id='+st,
+                url: 'http://47.113.151.37:8080/backend/page/food/add.html?id='+st,
                 name: '修改菜品'
               },true)
             }

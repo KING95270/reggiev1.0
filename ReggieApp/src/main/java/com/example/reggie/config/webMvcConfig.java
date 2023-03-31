@@ -52,6 +52,11 @@ public class webMvcConfig extends WebMvcConfigurationSupport {
     }
 
 
+    /**
+     * 前后端分离
+     * 接口文档
+     * @return
+     */
     @Bean
     public Docket Api(){
         return new Docket(DocumentationType.SWAGGER_2)
@@ -62,6 +67,7 @@ public class webMvcConfig extends WebMvcConfigurationSupport {
                 .build();
     }
 
+    //实现apiInfo
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
                 .title("瑞吉外卖")

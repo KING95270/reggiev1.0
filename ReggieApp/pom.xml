@@ -12,7 +12,7 @@
     <groupId>com.example</groupId>
     <artifactId>reggie</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
 
 
     <properties>
@@ -65,8 +65,9 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <scope>runtime</scope>
+            <version>5.1.38</version>
         </dependency>
+
 
         <dependency>
             <groupId>com.alibaba</groupId>

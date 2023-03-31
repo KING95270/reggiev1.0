@@ -1,7 +1,7 @@
 // 查询列表接口
 const getDishPage = (params) => {
   return $axios({
-    url: 'http://localhost:8080/dish/page',
+    url: 'http://47.113.151.37:8080/dish/page',
     method: 'get',
     params
   })
@@ -10,7 +10,7 @@ const getDishPage = (params) => {
 // 删除接口
 const deleteDish = (ids) => {
   return $axios({
-    url: 'http://localhost:8080/dish',
+    url: 'http://47.113.151.37:8080/dish',
     method: 'delete',
     params: { ids }
   })
@@ -19,7 +19,7 @@ const deleteDish = (ids) => {
 // 修改接口
 const editDish = (params) => {
   return $axios({
-    url: 'http://localhost:8080/dish',
+    url: 'http://47.113.151.37:8080/dish',
     method: 'put',
     data: { ...params }
   })
@@ -28,7 +28,7 @@ const editDish = (params) => {
 // 新增接口
 const addDish = (params) => {
   return $axios({
-    url: 'http://localhost:8080/dish',
+    url: 'http://47.113.151.37:8080/dish',
     method: 'post',
     data: { ...params }
   })
@@ -37,7 +37,7 @@ const addDish = (params) => {
 // 查询详情
 const queryDishById = (id) => {
   return $axios({
-    url: `http://localhost:8080/dish/${id}`,
+    url: `http://47.113.151.37:8080/dish/${id}`,
     method: 'get'
   })
 }
@@ -45,7 +45,7 @@ const queryDishById = (id) => {
 // 获取菜品分类列表
 const getCategoryList = (params) => {
   return $axios({
-    url: 'http://localhost:8080/category/list',
+    url: 'http://47.113.151.37:8080/category/list',
     method: 'get',
     params
   })
@@ -54,7 +54,7 @@ const getCategoryList = (params) => {
 // 查菜品列表的接口
 const queryDishList = (params) => {
   return $axios({
-    url: 'http://localhost:8080/dish/list',
+    url: 'http://47.113.151.37:8080/dish/list',
     method: 'get',
     params
   })
@@ -66,7 +66,7 @@ const commonDownload = (params) => {
     headers: {
       'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
     },
-    url: 'http://localhost:8080/common/download',
+    url: 'http://47.113.151.37:8080/common/download',
     method: 'get',
     params
   })
@@ -75,7 +75,7 @@ const commonDownload = (params) => {
 // 起售停售---批量起售停售接口
 const dishStatusByStatus = (params) => {
   return $axios({
-    url: `http://localhost:8080/dish/status/${params.status}`,
+    url: `http://47.113.151.37:8080/dish/status/${params.status}`,
     method: 'post',
     params: { ids: params.id }
   })

@@ -1,6 +1,6 @@
 function getMemberList (params) {
   return $axios({
-    url: 'http://localhost:8080/employee/page',
+    url: 'http://47.113.151.37:8080/employee/page',
     method: 'get',
     params
   })
@@ -9,7 +9,7 @@ function getMemberList (params) {
 // 修改---启用禁用接口
 function enableOrDisableEmployee (params) {
   return $axios({
-    url: 'http://localhost:8080/employee',
+    url: 'http://47.113.151.37:8080/employee',
     method: 'put',
     data: { ...params }
   })
@@ -18,7 +18,7 @@ function enableOrDisableEmployee (params) {
 // 新增---添加员工
 function addEmployee (params) {
   return $axios({
-    url: 'http://localhost:8080/employee',
+    url: 'http://47.113.151.37:8080/employee',
     method: 'post',
     data: { ...params }
   })
@@ -27,7 +27,7 @@ function addEmployee (params) {
 // 修改---添加员工
 function editEmployee (params) {
   return $axios({
-    url: 'http://localhost:8080/employee',
+    url: 'http://47.113.151.37:8080/employee',
     method: 'put',
     data: { ...params }
   })

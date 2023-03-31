@@ -1,7 +1,7 @@
 //获取所有的菜品分类
 function categoryListApi() {
     return $axios({
-      'url': 'http://localhost:8080/category/list',
+      'url': 'http://47.113.151.37:8080/category/list',
       'method': 'get',
     })
   }
@@ -9,7 +9,7 @@ function categoryListApi() {
 //获取菜品分类对应的菜品
 function dishListApi(data) {
     return $axios({
-        'url': 'http://localhost:8080/dish/list',
+        'url': 'http://47.113.151.37:8080/dish/list',
         'method': 'get',
         params:{...data}
     })
@@ -18,7 +18,7 @@ function dishListApi(data) {
 //获取菜品分类对应的套餐
 function setmealListApi(data) {
     return $axios({
-        'url': 'http://localhost:8080/setmeal/list',
+        'url': 'http://47.113.151.37:8080/setmeal/list',
         'method': 'get',
         params:{...data}
     })
@@ -27,7 +27,7 @@ function setmealListApi(data) {
 //获取购物车内商品的集合
 function cartListApi(data) {
     return $axios({
-        'url': 'http://localhost:8080/shoppingCart/list',
+        'url': 'http://47.113.151.37:8080/shoppingCart/list',
         'method': 'get',
         params:{...data}
     })
@@ -36,7 +36,7 @@ function cartListApi(data) {
 //购物车中添加商品
 function  addCartApi(data){
     return $axios({
-        'url': 'http://localhost:8080/shoppingCart/add',
+        'url': 'http://47.113.151.37:8080/shoppingCart/add',
         'method': 'post',
         data
       })
@@ -45,7 +45,7 @@ function  addCartApi(data){
 //购物车中修改商品
 function  updateCartApi(data){
     return $axios({
-        'url': 'http://localhost:8080/shoppingCart/sub',
+        'url': 'http://47.113.151.37:8080/shoppingCart/sub',
         'method': 'post',
         data
       })
@@ -54,7 +54,7 @@ function  updateCartApi(data){
 //删除购物车的商品
 function clearCartApi() {
     return $axios({
-        'url': 'http://localhost:8080/shoppingCart/clean',
+        'url': 'http://47.113.151.37:8080/shoppingCart/clean',
         'method': 'delete',
     })
 }
@@ -62,7 +62,7 @@ function clearCartApi() {
 //获取套餐的全部菜品
 function setMealDishDetailsApi(id) {
     return $axios({
-        'url': `http://localhost:8080/setmeal/dish/${id}`,
+        'url': `http://47.113.151.37:8080/setmeal/dish/${id}`,
         'method': 'get',
     })
 }

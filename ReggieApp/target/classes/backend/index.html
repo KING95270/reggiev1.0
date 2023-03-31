@@ -5,12 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>瑞吉外卖管理端</title>
-    <link rel="shortcut icon" href="http://localhost:8080/backend/favicon.ico">
+    <link rel="shortcut icon" href="http://47.113.151.37:8080/backend/favicon.ico">
     <!-- 引入样式 -->
-    <link rel="stylesheet" href="http://localhost:8080/backend/plugins/element-ui/index.css" />
-    <link rel="stylesheet" href="http://localhost:8080/backend/styles/common.css "/>
-    <link rel="stylesheet" href="http://localhost:8080/backend/styles/index.css"/>
-    <link rel="stylesheet" href="http://localhost:8080/backend/styles/icon/iconfont.css"/>
+    <link rel="stylesheet" href="http://47.113.151.37:8080/backend/plugins/element-ui/index.css" />
+    <link rel="stylesheet" href="http://47.113.151.37:8080/backend/styles/common.css "/>
+    <link rel="stylesheet" href="http://47.113.151.37:8080/backend/styles/index.css"/>
+    <link rel="stylesheet" href="http://47.113.151.37:8080/backend/styles/icon/iconfont.css"/>
 
 <!--    <link rel="stylesheet" href="plugins/element-ui/index.css" />-->
 <!--    <link rel="stylesheet" href="styles/common.css "/>-->
@@ -37,7 +37,7 @@
         <div class="sidebar-container">
           <div class="logo">
             <!-- <img src="images/logo.png" width="122.5" alt="" /> -->
-            <img src="http://localhost:8080/backend/images/login/login-logo.png" alt="" style="width: 117px; height: 32px" />
+            <img src="http://47.113.151.37:8080/backend/images/login/login-logo.png" alt="" style="width: 117px; height: 32px" />
           </div>
 
           <el-scrollbar wrap-class="scrollbar-wrapper">
@@ -79,14 +79,14 @@
           <div class="navbar">
             <div class="head-lable">
               <span v-if="goBackFlag" class="goBack" @click="goBack()"
-                ><img src="http://localhost:8080/backend/images/icons/btn_close@2x.png" alt="" /> 返回</span
+                ><img src="http://47.113.151.37:8080/backend/images/icons/btn_close@2x.png" alt="" /> 返回</span
               >
               <span>{{headTitle}}</span>
             </div>
             <div class="right-menu">
               <div class="avatar-wrapper">{{ userInfo.name }}</div>
               <!-- <div class="logout" @click="logout">退出</div> -->
-              <img src="http://localhost:8080/backend/images/icons/btn_close@2x.png" class="outLogin" alt="退出" @click="logout" />
+              <img src="http://47.113.151.37:8080/backend/images/icons/btn_close@2x.png" class="outLogin" alt="退出" @click="logout" />
             </div>
           </div>
           <div class="app-main" v-loading="loading">
@@ -106,25 +106,13 @@
       </div>
     </div>
     <!-- 开发环境版本，包含了有帮助的命令行警告 -->
-    <script src="http://localhost:8080/backend/plugins/vue/vue.js"></script>
+    <script src="http://47.113.151.37:8080/backend/plugins/vue/vue.js"></script>
     <!-- 引入组件库 -->
-    <script src="http://localhost:8080/backend/plugins/element-ui/index.js"></script>
+    <script src="http://47.113.151.37:8080/backend/plugins/element-ui/index.js"></script>
     <!-- 引入axios -->
-    <script src="http://localhost:8080/backend/plugins/axios/axios.min.js "></script>
-    <script src="http://localhost:8080/backend/js/request.js"></script>
-    <script src="http://localhost:8080/backend/api/login.js"></script>
-
-
-<!--    &lt;!&ndash; 开发环境版本，包含了有帮助的命令行警告 &ndash;&gt;-->
-<!--    <script src="plugins/vue/vue.js"></script>-->
-<!--    &lt;!&ndash; 引入组件库 &ndash;&gt;-->
-<!--    <script src="plugins/element-ui/index.js"></script>-->
-<!--    &lt;!&ndash; 引入axios &ndash;&gt;-->
-<!--    <script src="plugins/axios/axios.min.js"></script>-->
-<!--    <script src="js/request.js"></script>-->
-<!--    <script src="./api/login.js"></script>-->
-
-
+    <script src="http://47.113.151.37:8080/backend/plugins/axios/axios.min.js "></script>
+    <script src="http://47.113.151.37:8080/backend/js/request.js"></script>
+    <script src="http://47.113.151.37:8080/backend/api/login.js"></script>
 
     <script>
 
@@ -143,37 +131,37 @@
                   {
                     id: '2',
                     name: '员工管理',
-                    url: 'http://localhost:8080/backend/page/member/list.html',
+                    url: 'http://47.113.151.37:8080/backend/page/member/list.html',
                     icon: 'icon-member'
                   },
                   {
                     id: '3',
                     name: '分类管理',
-                    url: 'http://localhost:8080/backend/page/category/list.html',
+                    url: 'http://47.113.151.37:8080/backend/page/category/list.html',
                     icon: 'icon-category'
                   },
                   {
                     id: '4',
                     name: '菜品管理',
-                    url: 'http://localhost:8080/backend/page/food/list.html',
+                    url: 'http://47.113.151.37:8080/backend/page/food/list.html',
                     icon: 'icon-food'
                   },
                   {
                     id: '5',
                     name: '套餐管理',
-                    url: 'http://localhost:8080/backend/page/combo/list.html',
+                    url: 'http://47.113.151.37:8080/backend/page/combo/list.html',
                     icon: 'icon-combo'
                   },
                   {
                     id: '6',
                     name: '订单明细',
-                    url: 'http://localhost:8080/backend/page/order/list.html',
+                    url: 'http://47.113.151.37:8080/backend/page/order/list.html',
                     icon: 'icon-order'
                   }
               //   ],
               // },
             ],
-            iframeUrl: 'http://localhost:8080/backend/page/member/list.html',
+            iframeUrl: 'http://47.113.151.37:8080/backend/page/member/list.html',
             headTitle: '员工管理',
             goBackFlag: false,
             loading: true,
@@ -200,7 +188,7 @@
             logoutApi().then((res)=>{
               if(res.code === 1){
                 localStorage.removeItem('userInfo')
-                window.location.href = 'http://localhost:8080/reggie/backend/page/login/login.html'
+                window.location.href = 'http://47.113.151.37:8080/reggie/backend/page/login/login.html'
                 window.event.returnValue=false
 
               }
