@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import sun.util.resources.cldr.mg.LocaleNames_mg;
 
 import javax.servlet.http.HttpSession;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Slf4j
@@ -36,6 +37,7 @@ public class ShoppingCartController {
     @PostMapping("/add")
     public R<String> save(@RequestBody ShoppingCart shoppingCart, HttpSession session) {
         String userId = session.getAttribute("userId").toString();
+        shoppingCart.setCreateTime(LocalDateTime.now());
         long l = Long.parseLong(userId);
         shoppingCart.setUserId(l);
         shoppingCartService.save(shoppingCart);
